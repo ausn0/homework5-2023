@@ -1,12 +1,13 @@
 body {
     font-family: "Poppins", Serif;
     background: #f1f1f1 url("../images/concrete_seamless.png");
-    
+    /* */
 }
 header {
     display: flex;
     flex-direction: column;
     align-items: center;
+    /*Mobile view: Everything is a column due to screen width */
 }
 .nav_links {
     display: flex;
@@ -17,6 +18,7 @@ header {
 }
 .nav_links a:visited{
     color: blue;
+    /*All visited nav links stay blue instead of purple */
 }
 .card > header{
     background: #288088;
@@ -35,6 +37,7 @@ header {
     margin:auto;
     width:70%;
     flex-basis: 450px ; 
+    /*Both the card and the header need to be rounded */
     
 }
 .pricing{
@@ -56,7 +59,7 @@ header {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-
+/*Allow wrap in the gallery to have them side by side */
 }
 #logo {
     animation: logoMove 5s 1;
@@ -67,10 +70,15 @@ header {
     100% {width:475px;
         opacity: 1;}
 }
+/*Animation for logo, go from small and transparent to large and opaque */
+
+/*Large screen media query */
 @media all and (min-width: 900px){
+    /*Switch flex direction to row for everything, since we can now accomodate the width */
     header{
         flex-direction: row;
         justify-content: space-between;
+        /*This puts logo at far left and links at far right */
     }
     .nav_links{
         flex-direction: row;
@@ -86,18 +94,19 @@ header {
     .card{
         flex-basis: 275px;
     }
-
+/*This keeps the header sticking to the top of the screen as it scrolls */
     body > header{
         position: sticky ;
         top: 0px;
     }
 }
+/* Remove animation when reduced motion is on*/
 @media (prefers-reduced-motion){
     #logo{
         animation: none;
     }
 }
-
+/*Print view settings, different font, remove gallery, change some of the flex directions */
 @media print{@page {size:portrait}
     body{
         font-family: Arial, Helvetica, sans-serif;
@@ -133,6 +142,6 @@ header {
     }
     .card ul li:nth-child(2)::after{
         content:"\01F44D";
-
+/*Add emoji to end of 2nd list child in the ul of the card class */
     }
 }
